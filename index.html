@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmniCore – AI Desktop Assistant</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <!-- Ambient glow -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- ════════════ FULL CHAT PANEL ════════════ -->
+    <div id="chat-panel" class="chat-panel">
+        <header class="header">
+            <div class="brand">
+                <span class="brand-logo">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="url(#g1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="g1" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#a855f7"/><stop offset="1" stop-color="#3b82f6"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </span>
+                <span class="brand-name">OmniCore</span>
+            </div>
+            <span class="status-dot" id="status-dot">Connected</span>
+        </header>
+
+        <!-- 📡 AUTONOMOUS OPERATOR LOOP HUD 📡 -->
+        <div id="operator-hud" class="operator-hud" style="display: none;">
+            <div class="hud-status-row">
+                <span class="hud-label">Operator State:</span>
+                <span id="op-status" class="hud-value status-thinking">Ready</span>
+            </div>
+            <div class="hud-step-row">
+                <span class="hud-label">Current Task:</span>
+                <span id="op-task" class="hud-value font-medium">None</span>
+            </div>
+            <div class="hud-step-row">
+                <span class="hud-label">Active Step:</span>
+                <span id="op-step" class="hud-value text-muted">None</span>
+            </div>
+            <div class="hud-progress-container">
+                <div class="hud-progress-bar">
+                    <div id="op-progress" class="hud-progress-fill" style="width: 0%;"></div>
+                </div>
+                <span id="op-percentage" class="hud-percentage">0%</span>
+            </div>
+        </div>
+
+        <div class="conversation" id="conversation"></div>
+
+        <div class="input-area">
+            <button id="mic-btn" class="icon-btn mic" title="Click to speak">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 1a4 4 0 0 0-4 4v7a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4z" fill="currentColor"/>
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <input id="user-input" type="text" placeholder="Say or type a command…" autocomplete="off"/>
+            <button id="send-btn" class="icon-btn send" title="Send">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

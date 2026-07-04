@@ -1,0 +1,4 @@
+websockets
+pyautogui
+playwright
+pyttsx3
